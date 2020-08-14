@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+
+$theme-colors: (
+    "primary": #5B7CFD,
+    "success": #33CC86,
+    "danger": #FF7F57,
+    "warning": #ffae33,
+    "light":#DEE5FF,
+    "dark":#232D42
+);
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.bg-primary{
+    color: #DEE5FF;
+}
