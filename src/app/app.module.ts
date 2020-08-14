@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SitedetailsComponent } from './sitedetails/sitedetails.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './httpservice.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,10 @@ import { NotfoundComponent } from './notfound/notfound.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpService,AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

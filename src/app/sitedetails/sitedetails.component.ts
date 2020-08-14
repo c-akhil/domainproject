@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-sitedetails',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SitedetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) {
+    appService.getDomainList().subscribe(res => {
+      appService.domainList = res;
+    }, (e) => {
+      appService.domainList = [];
+    })
+
+  }
 
   ngOnInit() {
   }
 
+  getDomainList() {
+    return this.appService.domainList;
+  }
 }
