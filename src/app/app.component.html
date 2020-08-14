@@ -9,7 +9,7 @@
             <div class="menu mt-5">
                 <ul class="list-group">
                     <ng-container *ngFor="let r of menu">
-                        <li class="list-group-item bg-primary text-light" [class.active]="isRouteActive(r.link)" routerLink="{{r.link}}">
+                        <li class="list-group-item bg-primary " [class.active]="isRouteActive(r.link)" routerLink="{{r.link}}">
                             <i class="fa {{r.icon}}" aria-hidden="true"></i> {{r.name}}
                         </li>
                     </ng-container>

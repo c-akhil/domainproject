@@ -14,10 +14,12 @@
     .list-group{
         .list-group-item {
             outline: none;
-            border:none;
+            border: none;
+            color: #A7B8FD;
         }
         .active{
             background-color: #5374F0 !important;
+            color: #E1E6FC;
         }
     }
     .fa{
