@@ -8,7 +8,6 @@ export class HighlightSearch implements PipeTransform {
 
     transform(value: any, args: any): any {
         if (!args) {return value;}
-        var re = new RegExp(args, 'gi'); 
-        return value.replace(re, "<mark>$&</mark>");
+        return value.replace(new RegExp(args, 'gi'), "<mark>$&</mark>");
     }
 }
