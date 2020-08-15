@@ -9,6 +9,7 @@ import { AppService } from '../app.service';
 export class SitedetailsComponent implements OnInit {
 
   searchTerm: string = '';
+  sortBy: string = '';
 
   constructor(private appService: AppService) {
     appService.getDomainList().subscribe(res => {
@@ -20,20 +21,30 @@ export class SitedetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   getDomainList() {
-    let domainList = [...this.appService.domainList].filter((domain) => {
-      if (domain && domain.subdomain && domain.subdomain.length) {
-        for (let i = 0; i < domain.subdomain.length; i++) {
-          if (new RegExp(this.searchTerm, "i").test(domain.subdomain[i].name)) {
-            return true;
+    let domainList = [...this.appService.domainList];
+    if (this.searchTerm) {
+      domainList = domainList.filter((domain) => {
+        if (domain && domain.subdomain && domain.subdomain.length) {
+          for (let i = 0; i < domain.subdomain.length; i++) {
+            if (new RegExp(this.searchTerm, "i").test(domain.subdomain[i].name)) {
+              return true;
+            }
           }
         }
-      }
-      return new RegExp(this.searchTerm, "i").test(domain.domain);
-    });
+        return new RegExp(this.searchTerm, "i").test(domain.domain);
+      });
+    }
+    if (this.sortBy) {
+      domainList.sort((a, b) => {
+        if (a[this.sortBy] > b[this.sortBy]) return -1;
+        if (a[this.sortBy] < b[this.sortBy]) return 1;
+        return 0;
+      })
+    }
     return domainList;
   }
   getPercentage(val, total) {

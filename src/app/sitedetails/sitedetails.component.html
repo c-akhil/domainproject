@@ -11,7 +11,14 @@
   </div>
   <div class="row mt-3">
     <div class="col-3">
-      Sort By :
+      <div class="form-group">
+        <label>Sort By :</label>
+        <select class="form-control sort-by" [(ngModel)]="sortBy">
+          <option value="">None</option>
+          <option value="montlyVisitor">Monthly Visitors</option>
+          <option value="usedStorage">Storage Used</option>
+        </select>
+      </div>
     </div>
     <div class="col-9">
       <div class="input-group ">

@@ -52,7 +52,7 @@
         "plan":"Professional Plan",
         "status":1,
         "storage": "100gb",
-        "usedStorage": "50gb",
+        "usedStorage": "40gb",
         "domainTag": "Primary",
         "subdomain": [],
         "status": "Inactive",
@@ -63,7 +63,7 @@
     },
     {
         "id": 3,
-        "domain": "xyz.com",
+        "domain": "abc.com",
         "status":1,
         "storage": "100gb",
         "usedStorage": "50gb",
@@ -73,20 +73,20 @@
         "availableDomains": 10,
         "usedDomains": 1,
         "monthlyVisitorCapacity": 10000,
-        "montlyVisitor": 2000
+        "montlyVisitor": 3000
     },
     {
         "id": 4,
-        "domain": "xyz.com",
+        "domain": "pqr.com",
         "status":0,
         "storage": "100gb",
-        "usedStorage": "50gb",
+        "usedStorage": "30gb",
         "domainTag": "Primary",
         "subdomain": [],
         "status": "Inactive",
         "availableDomains": 10,
         "usedDomains": 1,
         "monthlyVisitorCapacity": 10000,
-        "montlyVisitor": 2000
+        "montlyVisitor": 500
     }
 ]

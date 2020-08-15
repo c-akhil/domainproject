@@ -89,7 +89,7 @@
     margin-left: 8px;
     top: 12px;
 }
-.search-input{
+.search-input,.sort-by{
     background-color: transparent;
     border: none;
     outline: none;
@@ -98,4 +98,8 @@
 
 .search-icon{
     padding-top: 15px;
+}
+.sort-by{
+    width: auto;
+    display: inline;
 }
