@@ -9,6 +9,21 @@
         <i class="fa fa-plus" aria-hidden="true"></i> Add New Site
       </button></span>
   </div>
+  <div class="row mt-3">
+    <div class="col-3">
+      Sort By :
+    </div>
+    <div class="col-9">
+      <div class="input-group ">
+        <div class="input-group-prepend search-icon">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <input [(ngModel)]="searchTerm"
+         autocomplete="off" class="form-control form-control-lg search-input" type="text"
+          placeholder="search records">
+      </div>
+    </div>
+  </div>
 
   <div class="card domain-table-header mt-5">
     <div class="card-body">

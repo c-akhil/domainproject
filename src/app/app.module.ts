@@ -8,6 +8,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './httpservice.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpService } from './httpservice.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

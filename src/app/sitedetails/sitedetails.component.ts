@@ -8,6 +8,8 @@ import { AppService } from '../app.service';
 })
 export class SitedetailsComponent implements OnInit {
 
+  searchTerm: string = '';
+
   constructor(private appService: AppService) {
     appService.getDomainList().subscribe(res => {
       appService.domainList = res;
@@ -18,21 +20,27 @@ export class SitedetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   getDomainList() {
-    return this.appService.domainList;
+    let domainList = [...this.appService.domainList].filter((domain) => {
+      if (domain && domain.subdomain && domain.subdomain.length) {
+        for (let i = 0; i < domain.subdomain.length; i++) {
+          if (new RegExp(this.searchTerm, "i").test(domain.subdomain[i].name)) {
+            return true;
+          }
+        }
+      }
+      return new RegExp(this.searchTerm, "i").test(domain.domain);
+    });
+    return domainList;
   }
   getPercentage(val, total) {
     return (parseInt(val) / parseInt(total)) * 100;
   }
 
   getCircleStyle(val, total) {
-    // <div class="box" style="--v:-90deg"></div><!-- 0% -->
-    // <div class="box" style="--v:-45deg"></div><!-- 12.5% -->
-    // <div class="box" style="--v:  0deg"></div><!-- 25% -->
-    // <div class="box" style="--v: 45deg"></div><!-- 37.5% -->
-    // <div class="box" style="--v: 90deg"></div><!-- 50% -->
     let percent = (parseInt(val) / parseInt(total)) * 100;
     let p = (18 / 5) * percent;
 
@@ -44,7 +52,6 @@ export class SitedetailsComponent implements OnInit {
     else if (percent < 12.5 * 6) p = 135;
     else if (percent < 12.5 * 7) p = 180;
 
-    console.log(p,percent,val,total)
     return `linear-gradient(#fff, #fff) padding-box, 
     linear-gradient(${p}deg, #f2f2f2 50%, transparent 0) border-box,
     linear-gradient(to right, #f2f2f2 50%, blue 0) border-box`;
