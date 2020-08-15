@@ -23,4 +23,7 @@ export class SitedetailsComponent implements OnInit {
   getDomainList() {
     return this.appService.domainList;
   }
+  getPercentage(val,total){
+    return (parseInt(val)/parseInt(total))*100;
+  }
 }

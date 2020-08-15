@@ -20,3 +20,8 @@ $theme-colors: (
 button:focus{
     outline: none;
 }
+body{
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}

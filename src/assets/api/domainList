@@ -1,27 +1,47 @@
 [
     {
         "id": 1,
-        "domain": "xyz.com",
+        "domain": "techcount.in",
+        "plan":"Professional Plan",
         "storage": "100gb",
-        "usedStorage": "50gb",
+        "usedStorage": "10gb",
         "domainTag": "Primary",
         "availableDomains": 10,
         "usedDomains": 4,
         "monthlyVisitorCapacity": 10000,
-        "montlyVisitor": 100,
+        "montlyVisitor": 9000,
+        "status":1,
         "subdomain": [
             {
                 "id": 11,
-                "name": "abc.xyz.com",
+                "name": "techcount.in",
+                "usedStorage": "10gb",
+                "domainTag": "Primary",
+                        "status":1,
+                "montlyVisitor": 700
+            },
+                       {
+                "id": 12,
+                "name": "biofourmis.techcount.in",
                 "usedStorage": "10gb",
                 "domainTag": "Staging",
+                        "status":1,
+                "montlyVisitor": 700
+            },
+                        {
+                "id": 13,
+                "name": "recipeapp.techcount.in",
+                "usedStorage": "10gb",
+                "domainTag": "Add On",
+                        "status":1,
                 "montlyVisitor": 700
             },
             {
-                "id": 12,
-                "name": "adef.xyz.com",
+                "id": 14,
+                "name": "blog.techcount.in",
                 "usedStorage": "40gb",
                 "domainTag": "Add On",
+                        "status":1,
                 "montlyVisitor": 1100
             }
         ]
@@ -29,6 +49,8 @@
     {
         "id": 2,
         "domain": "xyz.com",
+        "plan":"Professional Plan",
+        "status":1,
         "storage": "100gb",
         "usedStorage": "50gb",
         "domainTag": "Primary",
@@ -42,6 +64,7 @@
     {
         "id": 3,
         "domain": "xyz.com",
+        "status":1,
         "storage": "100gb",
         "usedStorage": "50gb",
         "domainTag": "Primary",
@@ -55,6 +78,7 @@
     {
         "id": 4,
         "domain": "xyz.com",
+        "status":0,
         "storage": "100gb",
         "usedStorage": "50gb",
         "domainTag": "Primary",
