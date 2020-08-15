@@ -13,3 +13,10 @@ $theme-colors: (
 .bg-primary{
     color: #DEE5FF;
 }
+.btn-light {
+    background-color: #FFFFFF;
+}
+
+button:focus{
+    outline: none;
+}
