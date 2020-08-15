@@ -4,8 +4,8 @@
     <span class="float-left">
       <p class="h1">Site Details</p>
     </span>
-    <span class="float-right"> <button class="add-new-site btn btn-primary pull-right" data-toggle="modal"
-        data-target="#addNewSiteModal">
+    <span class="float-right"> <button class="add-new-site btn btn-primary pull-right"
+        (click)="newDomain={};newDomain.subdomain=[{}]" data-toggle="modal" data-target="#addNewSiteModal">
         <i class="fa fa-plus" aria-hidden="true"></i> Add New Site
       </button></span>
   </div>
@@ -25,8 +25,8 @@
         <div class="input-group-prepend search-icon">
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
-        <input [(ngModel)]="searchTerm" autocomplete="off" class="form-control form-control-lg search-input" type="text"
-          placeholder="search records">
+        <input [(ngModel)]="searchTerm" autofocus autocomplete="off" class="form-control form-control-lg search-input"
+          type="text" placeholder="search records">
       </div>
     </div>
   </div>
@@ -138,11 +138,48 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputDomainName">Domain Name *</label>
+            <input [(ngModel)]="newDomain.domain" type="text" class="form-control" id="inputDomainName">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputStorage">Storage *</label>
+            <input [(ngModel)]="newDomain.storage" type="text" class="form-control" id="inputStorage">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputSubdomain">Subdomain</label>
+            <input [(ngModel)]="newDomain.subdomain[0].name" type="text" class="form-control" id="inputSubdomain">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputMonthlyVisitors">Monthly Visitors*</label>
+            <input [(ngModel)]="newDomain.monthlyVisitorCapacity" type="text" class="form-control"
+              id="inputMonthlyVisitors">
+          </div>
+        </div>
+        <ng-container *ngIf="newDomain?.subdomain?.length>1">
+          <div class="form-row" *ngFor="let subdomain of newDomain.subdomain | slice:1">
+            <div class="form-group col-md-6">
+              <input [(ngModel)]="subdomain.name" type="text" class="form-control" id="inputSubdomain">
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input type="email" class="form-control">
+            <button class="btn btn-light btn-add-more mt-3 pull-right" (click)="newDomain.subdomain.push({})">Add
+              More</button>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-light btn-close" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-save-changes">Save changes</button>
+        <button type="button" class="btn btn-primary btn-save-changes" (click)="addDomainToDomainList(newDomain)">Save
+          changes</button>
       </div>
     </div>
   </div>

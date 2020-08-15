@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-
 @Component({
   selector: 'app-sitedetails',
   templateUrl: './sitedetails.component.html',
@@ -10,8 +9,10 @@ export class SitedetailsComponent implements OnInit {
 
   searchTerm: string = '';
   sortBy: string = '';
+  newDomain: any = {};
 
   constructor(private appService: AppService) {
+    this.newDomain.subdomain = [{}];
     appService.getDomainList().subscribe(res => {
       appService.domainList = res;
     }, (e) => {
@@ -22,6 +23,36 @@ export class SitedetailsComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+  addDomainToDomainList(domain) {
+    if (!domain.domain) {
+      alert("Domain is mandatory");
+      return;
+    }
+    if (!domain.storage) {
+      alert("Storage is mandatory");
+      return;
+    }
+    if (!domain.monthlyVisitorCapacity) {
+      alert("Monthly visitors is mandatory");
+      return;
+    }
+  
+   
+    console.log(domain)
+    this.appService.domainList.push({ 
+      ...domain, 
+      subdomain: domain.subdomain.filter(s => { return s && s.name }) ,
+      id:this.appService.domainList.length,
+      "plan":"Professional Plan",
+      "usedStorage": "0gb",
+      "domainTag": "Primary",
+      "availableDomains": 1,
+      "usedDomains": 0,
+      "montlyVisitor": 0,
+      "status":1,
+    });
+    (<any>window).$("#addNewSiteModal").modal("hide");
   }
 
   getDomainList() {

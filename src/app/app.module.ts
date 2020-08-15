@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './httpservice.service';
 import { FormsModule } from '@angular/forms';
 import { HighlightSearch } from './pipes/hightlight.pipe';
-
+declare var $: any;
 @NgModule({
   declarations: [
     AppComponent,
