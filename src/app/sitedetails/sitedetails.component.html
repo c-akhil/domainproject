@@ -57,11 +57,17 @@
             <div class="col-2">
               {{domain.montlyVisitor}} of {{domain.monthlyVisitorCapacity}}
               <div class="bar">
-                <div class="bar-text" [style.width.%]="getPercentage(domain.montlyVisitor,domain.monthlyVisitorCapacity)"></div>
+                <div class="bar-text"
+                  [style.width.%]="getPercentage(domain.montlyVisitor,domain.monthlyVisitorCapacity)"></div>
               </div>
             </div>
             <div class="col-2">
-              {{domain.usedDomains}} of {{domain.availableDomains}}
+              <div class="circle-box"
+                [ngStyle]="{'background':getCircleStyle(domain.usedDomains,domain.availableDomains) }">
+                <span class="circle-box-text">
+                  {{domain.usedDomains}}/{{domain.availableDomains}}
+                </span>
+              </div>
             </div>
             <div class="col-2" *ngIf="!(domain?.subdomain?.length > 0)">
               <button *ngIf="domain.status==1" class="btn btn-active-domain">Active</button>
